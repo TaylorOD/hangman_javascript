@@ -1,44 +1,35 @@
-## Project name README:
+## Hangman - JavaScript README:
 
-### Project Name/Intro
+### Web Browser Hangman Game built in JavaScript
 
-- Describe very briefly but clearly what the project does.
-- State if it is out-of-the-box user-friendly, so it’s clear to the user.
-- List its most useful/innovative/noteworthy features.
-- State its goals/what problem(s) it solves.
-- Note and briefly describe any key concepts (technical, philosophical, or both) important to the user’s understanding.
-- Link to any supplementary blog posts or project main pages.
-- Note its development status.
-- Include badges.
-- If possible, include screenshots and demo videos.
+- This is a hangman game that runs in the web browser. It's built with vanilla JavaScript, CSS, and HTML.
+- I built it while expanding my vanilla javascript abilities.
+- I purposefully built it without using a JavaScript framework like Vue or React so I could gain a deeper understanding of JavaScript.
 
 ### Technology stack: 
-- Indicate the technological nature of the software, including primary programming language(s) and whether the software is intended as standalone or as a module in a framework or other ecosystem.
+- It is build primarily with Vanilla JavaScript and uses some HTML and CSS.
   
 ### Status:  
-- Alpha, Beta, 1.1, etc. It's OK to write a sentence, too. The goal is to let interested people know where this project is at. This is also a good place to link to the [CHANGELOG](CHANGELOG.md).
+- I plan to continue improving this project (see todo section) but as is it is fully functional.
 
 ### Getting Started/Requirements/Prerequisites/Dependencies
 Include any essential instructions for:
-- Getting it
-- Installing It
-- Configuring It
-- Running it
+- Getting it: download or clone the project
+- Installing It: I use live-server to run the index page but you can use a number of tools to do so.
+- Configuring It: You can edit the number of words in the prompt in the code under the function getPuzzle
+- Running it: You play the game in the browser using your keyboard. 
 
 ### Contributing
-- Contributor Guidelines
-- Code Style/Requirements
-- Format for commit messages
-- Thank you (name contributors)
+- Contributor Guidelines: Feel free to make a pull request if you see anything that might be nice to add.
+- Code Style/Requirements: Please use HTML, CSS, or vanilla javascript.
 
 ### Known issues
-- Document any known significant shortcomings with the software.
-- Known bugs (shortlist)
+- Guessed letters are not on screen
 
 ### TODO
-- Show previously guessed letters
+- Show previously guessed letters on screen
 - Flash warning message when guesses decrease
-- Known bugs (shortlist)
+- Add ability to adjust the number of words being guessed
 
 ### Contact
 - taylorsunwantedemails@gmail.com
@@ -54,6 +45,4 @@ Include any essential instructions for:
 
 ## Credits and references
 
-1. Projects that inspired me
-2. Related projects
-3. Books, papers, talks, or other sources that have meaningful impact or influence on this project
+1. I got started with this app while following Andrew Mead's fantastic Udemy course called, "The Modern JavaScript Bootcamp" I still use his puzzle "api" because it has a lot of varied puzzles. 

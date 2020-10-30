@@ -1,6 +1,7 @@
 const puzzleEl = document.querySelector("#puzzle");
 const guessesEl = document.querySelector("#guesses");
 const statusEl = document.querySelector("#status");
+const guessedLettersEl = document.querySelector("#guessed-letters")
 
 let hangmanGame
 
@@ -16,12 +17,20 @@ window.addEventListener("keypress", (e) => {
 const render = () => {
   puzzleEl.innerHTML = ""
   statusEl.textContent = hangmanGame.statusMessage;
+  guessedLettersEl.innerHTML = ""
 
   hangmanGame.puzzle.split("").forEach((letter) => {
     const letterEl = document.createElement("span")
     letterEl.textContent = letter
     puzzleEl.appendChild(letterEl)
   })
+
+  hangmanGame.guessedLetters.split("").forEach((letter) => {
+    const guessedLetterEl = document.createElement("span")
+    guessedLetterEl.textContent = letter
+    guessed.appendChild(guessedLetterEl)
+  })
+
 
 }
 

@@ -56,4 +56,6 @@ class Hangman {
       return "Finished: Great job! You guessed the word."
     }
   }
+  guessedLetters() {
+  }
 }

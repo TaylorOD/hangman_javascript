@@ -56,6 +56,7 @@ class Hangman {
       return "Finished: Great job! You guessed the word."
     }
   }
-  guessedLetters() {
-  }
+  // guessedLetters() {
+  //   return `Incorrectly Guessed Letters: ${this.guessedLetters}`
+  // }
 }

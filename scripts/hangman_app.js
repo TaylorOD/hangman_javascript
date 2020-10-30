@@ -1,7 +1,7 @@
 const puzzleEl = document.querySelector("#puzzle");
 const guessesEl = document.querySelector("#guesses");
 const statusEl = document.querySelector("#status");
-const guessedLettersEl = document.querySelector("#guessed-letters")
+const guessedLettersEl = document.querySelector("#guessed");
 
 let hangmanGame
 
@@ -25,7 +25,7 @@ const render = () => {
     puzzleEl.appendChild(letterEl)
   })
 
-  hangmanGame.guessedLetters.split("").forEach((letter) => {
+  hangmanGame.guessedLetters.forEach((letter) => {
     const guessedLetterEl = document.createElement("span")
     guessedLetterEl.textContent = letter
     guessed.appendChild(guessedLetterEl)

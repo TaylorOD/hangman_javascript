@@ -27,7 +27,7 @@ Include any essential instructions for:
 - Guessed letters are not on screen
 
 ### TODO
-- Show previously guessed letters on screen
+- Show previously guessed letters on screen only if they are incorrect
 - Flash warning message when guesses decrease
 - Add ability to adjust the number of words being guessed
 

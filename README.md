@@ -17,14 +17,14 @@ Include any essential instructions for:
 - Getting it: download or clone the project
 - Installing It: I use live-server to run the index page but you can use a number of tools to do so.
 - Configuring It: You can edit the number of words in the prompt in the code under the function getPuzzle
-- Running it: You play the game in the browser using your keyboard. 
+- Running it: You play the game in the browser using your keyboard. You can find it here: https://hangman-javascript-td.netlify.app
 
 ### Contributing
 - Contributor Guidelines: Feel free to make a pull request if you see anything that might be nice to add.
 - Code Style/Requirements: Please use HTML, CSS, or vanilla javascript.
 
 ### Known issues
-- Guessed letters are not on screen
+- There is an extra empty character on screen
 
 ### TODO
 - Show previously guessed letters on screen only if they are incorrect

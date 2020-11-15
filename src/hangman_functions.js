@@ -60,3 +60,5 @@ class Hangman {
   //   return `Incorrectly Guessed Letters: ${this.guessedLetters}`
   // }
 }
+
+export { Hangman as default }

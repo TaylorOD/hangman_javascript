@@ -24,7 +24,7 @@ Include any essential instructions for:
 - Code Style/Requirements: Please use HTML, CSS, or vanilla javascript.
 
 ### Known issues
-- There is an extra empty character on screen
+- 
 
 ### TODO
 - Show previously guessed letters on screen only if they are incorrect

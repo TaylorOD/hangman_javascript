@@ -1,6 +1,6 @@
 const path = require("path")
 
-module.exports = {
+module.exports = (env, argv = {}) => ({
   entry: ["babel-polyfill", "./src/index.js"],
   output: {
     path: path.resolve(__dirname, "public/scripts"),
@@ -22,5 +22,5 @@ module.exports = {
     contentBase: path.resolve(__dirname, "public"),
     publicPath: "/scripts/"
   },
-  devtool: "source-map"
-}
+  devtool: argv.mode === "production" ? false : "source-map"
+})

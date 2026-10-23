@@ -1,0 +1,26 @@
+name: Hangman HTTPS and bundle checks
+
+on:
+  pull_request:
+  push:
+    branches: [master]
+
+permissions:
+  contents: read
+
+jobs:
+  verify-bundle:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '16'
+      - run: node --check public/scripts/bundle.js
+      - run: node --check webpack.config.js
+      - run: node test/security/https_bundle.test.js
+      - run: npm ci --legacy-peer-deps --no-audit --no-fund
+      - run: npm run build
+      - run: node test/security/https_bundle.test.js
+      - name: Confirm HTTPS upstream responds
+        run: curl --fail --silent --show-error --location --retry 2 --connect-timeout 10 --max-time 25 'https://puzzle.mead.io/puzzle?wordCount=2' -o /dev/null

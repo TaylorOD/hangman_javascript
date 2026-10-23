@@ -9,7 +9,6 @@ const url = "https://puzzle.mead.io/puzzle?wordCount=";
 
 assert.ok(source.includes(url), "source request must require HTTPS");
 assert.ok(compiled.includes(url), "published bundle must require HTTPS");
-assert.ok(!source.includes("//puzzle.mead.io/puzzle?wordCount=") || source.includes(url));
 // Reject scheme-relative fetch calls while allowing https:// URLs.
 assert.ok(!source.includes("fetch(`//puzzle.mead.io"), "no scheme-relative source request");
 assert.ok(!compiled.includes('fetch("//puzzle.mead.io'), "no scheme-relative bundle request");

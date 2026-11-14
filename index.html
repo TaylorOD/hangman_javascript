@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Hangman | Taylor Dorsett</title>
+  <meta name="description" content="A chalkboard hangman game. One daily puzzle for everyone, plus as many practice words as you want.">
+  <meta property="og:title" content="Hangman">
+  <meta property="og:description" content="One daily puzzle for everyone, plus as many practice words as you want.">
+  <meta property="og:image" content="https://www.taylordorsett.com/hangman_javascript/og-image.png">
+  <meta property="og:url" content="https://www.taylordorsett.com/hangman_javascript/">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" content="#1f2b25">
+  <link rel="icon" href="./favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="./apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Gochi+Hand&family=Patrick+Hand&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./style.css">
+  <script type="module" src="./app.js"></script>
+</head>
+<body>
+  <div class="frame">
+    <header class="top">
+      <h1>Hangman</h1>
+      <div class="modes" role="group" aria-label="Game mode">
+        <button type="button" class="mode" data-mode="daily" aria-pressed="true">Daily</button>
+        <button type="button" class="mode" data-mode="practice" aria-pressed="false">Practice</button>
+      </div>
+    </header>
+
+    <main class="board">
+      <section class="drawing" aria-label="Hangman drawing">
+        <svg id="gallows" viewBox="0 0 200 240" role="img" aria-labelledby="miss-count">
+          <defs>
+            <filter id="chalk" x="-10%" y="-10%" width="120%" height="120%">
+              <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" seed="4" result="noise"/>
+              <feDisplacementMap in="SourceGraphic" in2="noise" scale="2.2"/>
+            </filter>
+          </defs>
+          <g class="chalk-lines" filter="url(#chalk)">
+            <path d="M18 226H132M50 226V20H142M50 56L86 20M142 20V46"/>
+            <path class="part" data-step="1" pathLength="1" d="M142 46a21 21 0 1 1 0 42a21 21 0 1 1 0-42"/>
+            <path class="part" data-step="2" pathLength="1" d="M142 88V152"/>
+            <path class="part" data-step="3" pathLength="1" d="M142 106L114 132"/>
+            <path class="part" data-step="4" pathLength="1" d="M142 106L170 132"/>
+            <path class="part" data-step="5" pathLength="1" d="M142 152L118 196"/>
+            <path class="part" data-step="6" pathLength="1" d="M142 152L166 196"/>
+            <path class="face" d="M130 61l7 7m0-7l-7 7M147 61l7 7m0-7l-7 7M133 79q9-5 18 0"/>
+          </g>
+        </svg>
+        <p id="miss-count" class="miss-count">0 of 6 misses</p>
+      </section>
+
+      <section class="play">
+        <p class="category">Category: <span id="category"></span></p>
+        <div id="puzzle" class="puzzle"></div>
+        <p id="status" class="status" role="status" aria-live="polite"></p>
+        <div class="actions">
+          <button type="button" id="hint" class="action">Hint <small>costs a miss</small></button>
+          <button type="button" id="next" class="action primary" hidden>New word</button>
+          <button type="button" id="share" class="action primary" hidden>Share result</button>
+        </div>
+      </section>
+    </main>
+
+    <div id="keyboard" class="keyboard" aria-label="Letters"></div>
+
+    <section class="stats" aria-label="Your stats">
+      <div><strong id="stat-played">0</strong><span>played</span></div>
+      <div><strong id="stat-rate">0%</strong><span>won</span></div>
+      <div><strong id="stat-streak">0</strong><span>streak</span></div>
+      <div><strong id="stat-best">0</strong><span>best streak</span></div>
+    </section>
+  </div>
+
+  <footer class="footer">
+    <a href="https://www.taylordorsett.com/">a Taylor Dorsett production ↗</a>
+    <a href="https://github.com/TaylorOD/hangman_javascript">code on GitHub ↗</a>
+  </footer>
+</body>
+</html>

@@ -1,48 +1,64 @@
-## Hangman - JavaScript README:
+# Hangman
 
-### Web Browser Hangman Game built in JavaScript
+Hangman on a chalkboard. There's one daily puzzle that's the same for everyone, plus practice mode when one a day isn't enough.
 
-- This is a hangman game that runs in the web browser. It's built with vanilla JavaScript, CSS, and HTML.
-- I built it while expanding my vanilla javascript abilities.
-- I purposefully built it without using a JavaScript framework like Vue or React so I could gain a deeper understanding of JavaScript.
+Play it at [taylordorsett.com/hangman_javascript](https://www.taylordorsett.com/hangman_javascript/).
 
-### Technology stack: 
-- It is build primarily with Vanilla JavaScript and uses some HTML and CSS.
-  
-### Status:  
-- I plan to continue improving this project (see todo section) but as is it is fully functional.
+![Hangman in the middle of a game](screenshots/game.jpg)
 
-### Getting Started/Requirements/Prerequisites/Dependencies
-Include any essential instructions for:
-- Getting it: download or clone the project
-- Installing It: I use live-server to run the index page but you can use a number of tools to do so.
-- Configuring It: You can edit the number of words in the prompt in the code under the function getPuzzle
-- Running it: You play the game in the browser using your keyboard. You can find it here: https://hangman-javascript-td.netlify.app
+## Why?
 
-### Contributing
-- Contributor Guidelines: Feel free to make a pull request if you see anything that might be nice to add.
-- Code Style/Requirements: Please use HTML, CSS, or vanilla javascript.
+This was one of the first things I ever built in JavaScript, back in 2020. It used a puzzle API from a course I was taking and needed webpack to run. I rebuilt it from scratch so it runs on my site with no build step, and so it's actually fun to play.
 
-### Known issues
-- 
+## What can it do?
 
-### TODO
-- Show previously guessed letters on screen only if they are incorrect
-- Flash warning message when guesses decrease
-- Add ability to adjust the number of words being guessed
+* A new daily puzzle at midnight your time. Everyone gets the same one, and it goes through every puzzle before it repeats
+* Practice mode deals a new word whenever you want and skips the ones you've seen lately
+* Type or tap letters on the chalk keyboard. Hits turn green and misses get crossed out
+* Six misses and you're hanged, one line of chalk at a time
+* One hint per game shows a missing letter, but it costs a miss
+* Share your daily result without spoiling the answer
+* Tracks games played, win rate, your streak and your best streak
+* Remembers a game in progress if you close the tab
 
-### Contact
-- taylorsunwantedemails@gmail.com
+The puzzles come in seven categories: poker night, video games, gym bag, big sky country, pizza shop, coding and animals.
 
----
+## What tech?
 
-## Open source licensing info
-1. [TERMS](TERMS.md)
-2. [LICENSE](LICENSE)
-3. [CFPB Source Code Policy](https://github.com/cfpb/source-code-policy/)
+Plain HTML, CSS and JavaScript modules. No framework and no build step. GitHub Pages hosts it.
 
-----
+| File | What it does |
+| --- | --- |
+| `index.html` | The page and the chalk drawing |
+| `style.css` | The chalkboard |
+| `game.js` | The rules: guesses, misses, hints, the daily puzzle and the share text |
+| `app.js` | The keyboard, buttons, saving and drawing the page |
+| `words.js` | Every puzzle and its category |
 
-## Credits and references
+Saves live in localStorage. If your browser blocks storage the game still works, it just forgets when you leave.
 
-1. I got started with this app while following Andrew Mead's fantastic Udemy course called, "The Modern JavaScript Bootcamp" I still use his puzzle "api" because it has a lot of varied puzzles. 
+## Running it locally
+
+Serve the folder with anything that serves static files:
+
+```sh
+npx http-server .
+```
+
+The page uses JavaScript modules, so opening index.html straight from your files won't work.
+
+## Testing
+
+```sh
+npm install
+npx playwright install chromium
+npm test
+```
+
+That runs the rule tests with Node's test runner, then plays the game in a real browser at phone and desktop sizes. GitHub Actions runs them on every PR, deploys the site when master changes, and posts a preview link on every PR.
+
+## Adding puzzles
+
+Add answers to a category in `words.js`, or add a new category. Answers are letters and spaces only. The tests check for that and for duplicates.
+
+MIT license.

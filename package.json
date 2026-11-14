@@ -1,23 +1,13 @@
 {
-  "name": "boilerplate",
-  "version": "1.0.0",
-  "description": "",
-  "main": "input.js",
+  "name": "hangman",
+  "private": true,
+  "license": "MIT",
+  "type": "module",
   "scripts": {
-    "start": "webpack-cli serve --mode development",
-    "build": "webpack --mode production"
+    "test": "node --test tests/unit/*.test.mjs && playwright test"
   },
-  "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "@webpack-cli/init": "^1.0.3",
-    "babel-cli": "^6.26.0",
-    "babel-loader": "^7.1.4",
-    "babel-polyfill": "^6.26.0",
-    "babel-preset-env": "^1.6.1",
-    "live-server": "^1.2.1",
-    "webpack": "^4.44.2",
-    "webpack-cli": "^4.2.0",
-    "webpack-dev-server": "^3.11.0"
+  "devDependencies": {
+    "@playwright/test": "1.64.1",
+    "http-server": "14.1.1"
   }
 }
